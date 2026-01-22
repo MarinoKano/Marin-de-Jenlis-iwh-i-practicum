@@ -1,0 +1,25 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    title= title
+  body
+    a(href="/update-cobj") Add to this table
+
+    h1= title
+
+    if records.length === 0
+      p No records yet.
+    else
+      table(border="1" cellpadding="8")
+        thead
+          tr
+            th Name
+            th Energy
+            th Size
+        tbody
+          each r in records
+            tr
+              td= r.properties.name
+              td= r.properties.energy
+              td= r.properties.size
