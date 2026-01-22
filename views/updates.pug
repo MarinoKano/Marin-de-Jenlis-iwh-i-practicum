@@ -1,0 +1,31 @@
+doctype html
+html
+  head
+    title= title
+  body
+    a(href="/") Return to the homepage
+    h1= title
+
+    if error
+      p(style="color:red")= error
+
+    form(method="POST" action="/update-cobj")
+      div
+        label(for="name") Name
+        input#name(type="text" name="name" required)
+
+      div
+        label(for="energy") Energy
+        select#energy(name="energy" required)
+          option(value="") -- Select energy --
+          option(value="Hydrogen") Hydrogen
+          option(value="Petrol") Petrol
+          option(value="Gas") Gas
+          option(value="Fire") Fire
+          option(value="Water") Water
+
+      div
+        label(for="size") Size
+        input#size(type="number" name="size" min="0" step="1" required)
+
+      button(type="submit") Create record
